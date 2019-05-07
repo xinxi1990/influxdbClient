@@ -1,0 +1,14 @@
+influxdb:
+    image: influxdb
+    ports:
+        - "8083:8083"
+        - "8086:8086"
+    volumes:
+        - $PWD:/var/lib/influxdb
+        - $PWD/influxdb.conf:/etc/influxdb/influxdb.conf influxdb
+
+
+grafana:
+    image: grafana/grafana
+    ports:
+        - "9000:3000"
