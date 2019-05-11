@@ -105,3 +105,9 @@ https://blog.csdn.net/JOJOY_tester/article/details/77926470
 
 InfluxDB基本概念小结<br>
 https://juejin.im/post/5b59b9b9f265da0f87593981
+
+flask socketio 轮询日志<br>
+https://www.jianshu.com/p/393e949acae6
+
+使用Flask-Socketio进行WebSocket通信<br>
+https://www.highcharts.com.cn/demo/highcharts/line-time-series

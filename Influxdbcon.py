@@ -70,10 +70,8 @@ class InfluxdbConnect():
         self.client.write_points(json_body)
         print("====writing data====")
 
-
-
     def query_data(self):
-        result = client.query('select * from api_test;')
+        result = self.client.query('select value from api_test;')
         print("Result: {0}".format(result))
 
     @staticmethod
@@ -83,5 +81,9 @@ class InfluxdbConnect():
         client.create_database(db_name)
 
 if __name__ == '__main__':
-    InfluxdbConnect.create_db("api_test")
+    # InfluxdbConnect.create_db("api_test")
+
+    ic = InfluxdbConnect()
+    ic.insert_data(200, 1, 1)
+
 

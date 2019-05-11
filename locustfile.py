@@ -9,10 +9,13 @@ client.get===>requests.get
 client.post===>requests.post
 """
 
+import time
 from locust import HttpLocust, TaskSet, task
 from Influxdbcon import InfluxdbConnect
 
 ic = InfluxdbConnect()
+
+request_log = "api.log"
 
 class test_126(TaskSet):
     '''
@@ -32,6 +35,10 @@ class test_126(TaskSet):
         url = r.url
         code  = r.status_code
         ic.insert_data(code,url,use_time)
+        now = int(time.time())
+        with open(request_log, 'a') as f_w:
+            f_w.write(str(now) + ','+ str(use_time) + '\n')
+            print('写{}文件完成'.format(request_log))
         assert r.status_code == 200
 
 
